@@ -13,6 +13,3 @@ This repository demonstrates a full RAG-ready SRE wiki implementation:
 1. Read [`docs/technique_deep_dive.md`](docs/technique_deep_dive.md), [`docs/wiki_content_strategy.md`](docs/wiki_content_strategy.md), and [`docs/rag_implementation_specs.md`](docs/rag_implementation_specs.md) to understand the ingestion strategy, content mapping, and storage schema.
 2. Explore [`docs/processed/`](docs/processed/) to see how a large Markdown document is structured/annotated after following those best practices.
 3. Use the templates in [`sre_wiki_example/`](sre_wiki_example/) when adding new runbooks, postmortems, process docs, event prep plans, stakeholder sheets, and service-specific knowledge bases so future ingestion work already meets the guidelines.
-
-## Remote
-`origin` → `git@github.com:brendanbecker/RaggedWiki.git`
