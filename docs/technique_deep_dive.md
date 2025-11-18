@@ -30,21 +30,21 @@ Running BM25 on abstracts avoids dragging noisy bodies into the first hop, which
 ```mermaid
 flowchart LR
     subgraph Ingestion
-        A[Runbooks / RCAs / Design Docs] --> B[Header & Layout Parser]
-        B --> C[Hierarchy Builder\n(parent_id + breadcrumbs)]
-        C --> D{Token Check}
-        D -->|<400| E[Merge with siblings]
-        D -->|400-900| F[Finalize Section]
-        D -->|>900| G[Recursive split on subheaders]
+        A["Runbooks / RCAs / Design Docs"] --> B["Header & Layout Parser"]
+        B --> C["Hierarchy Builder<br/>(parent_id + breadcrumbs)"]
+        C --> D{"Token Check"}
+        D -->|<400| E["Merge with siblings"]
+        D -->|400-900| F["Finalize Section"]
+        D -->|>900| G["Recursive split on subheaders"]
         E --> F
         G --> D
-        F --> H[Abstract Generator\n(100-200 tokens)]
-        F --> I[Full Section Store\n(400-900 tokens)]
-        H --> J[Abstract Embedding Job]
-        I --> K[Full Text Embedding Job]
-        J --> L[(Vector DB: abstract_embedding)]
-        K --> M[(Vector DB: full_text_embedding)]
-        F --> N[(Object Store: canonical text\n+ parent_section_id + breadcrumbs)]
+        F --> H["Abstract Generator<br/>(100-200 tokens)"]
+        F --> I["Full Section Store<br/>(400-900 tokens)"]
+        H --> J["Abstract Embedding Job"]
+        I --> K["Full Text Embedding Job"]
+        J --> L[/"Vector DB:<br/>abstract_embedding"/]
+        K --> M[/"Vector DB:<br/>full_text_embedding"/]
+        F --> N[/"Object Store:<br/>canonical text + parent_section_id + breadcrumbs"/]
     end
     style B fill:#e0f7fa,stroke:#00838f
     style C fill:#e0f7fa,stroke:#00838f
@@ -60,18 +60,18 @@ flowchart LR
 ```mermaid
 flowchart LR
     subgraph Query Orchestration
-        Q[User Query] --> T0[Stage 0: Query Transforms\n(Multi-Query + Multi-HyDE)]
+        Q["User Query"] --> T0["Stage 0: Query Transforms<br/>(Multi-Query + Multi-HyDE)"]
     end
     subgraph Retrieval
-        T0 --> T1[Stage 1: Hybrid Search\nBM25 on abstracts + dense]
-        T1 --> T15[Stage 1.5: Multi-Vector / MUVERA\nLate Interaction rerank]
-        T15 --> T2[Stage 2: Cross-Encoder rerank\nTop 20 -> Top 5-10]
+        T0 --> T1["Stage 1: Hybrid Search<br/>BM25 on abstracts + dense"]
+        T1 --> T15["Stage 1.5: Multi-Vector / MUVERA<br/>Late Interaction rerank"]
+        T15 --> T2["Stage 2: Cross-Encoder rerank<br/>Top 20 -> Top 5-10"]
     end
     subgraph Post Retrieval
-        T2 --> PR1[Deduplicate abstract/full pairs]
-        PR1 --> PR2[Pack adjacent parents]
-        PR2 --> PR3[Attach breadcrumbs + citations]
-        PR3 --> Ctx[Context sent to LLM]
+        T2 --> PR1["Deduplicate abstract/full pairs"]
+        PR1 --> PR2["Pack adjacent parents"]
+        PR2 --> PR3["Attach breadcrumbs + citations"]
+        PR3 --> Ctx["Context sent to LLM"]
     end
     style T1 fill:#ffe0b2,stroke:#ef6c00
     style T15 fill:#e1f5fe,stroke:#0277bd
