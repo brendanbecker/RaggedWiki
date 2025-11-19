@@ -123,6 +123,10 @@ The deep research documents that informed this curriculum are available in [`doc
 
 ---
 
-## License & Contributions
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributions
 
 This is an educational resource maintained as a living document. If you find gaps, unclear explanations, or opportunities to improve the teaching approach, contributions are welcome.
