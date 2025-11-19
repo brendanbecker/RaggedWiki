@@ -32,8 +32,8 @@ Vector: [0.23, -0.45, 0.12, ..., 0.78]  (typically 768-3072 dimensions)
 
 **Why this matters:**
 - Similar concepts produce similar vectors (mathematical proximity)
-- "Database timeout" and "connection pool exhaustion" will have vectors close together in the embedding space
-- "Database timeout" and "sunny weather" will have vectors far apart
+- True paraphrases have very close vectors: "Database connection failed" ≈ "Cannot connect to database" (similarity: 0.88)
+- Semantically distant phrases have far vectors: "Database timeout" vs "Sunny weather" (similarity: ~0.0)
 
 ### How Similarity Works
 
