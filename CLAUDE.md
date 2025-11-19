@@ -4,95 +4,73 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Purpose
 
-RaggedWiki is an **educational curriculum and project guideline** that teaches how to use RAG (Retrieval-Augmented Generation) correctly in enterprise environments, and how to structure wikis to work optimally for both human readers and LLM systems.
+RaggedWiki is an **educational curriculum** that teaches how to use RAG (Retrieval-Augmented Generation) correctly in enterprise environments, and how to structure wikis to work optimally for both human readers and LLM systems.
 
 ### Current State
-The project currently contains **research-based educational materials** in the form of comprehensive technical documents. These materials are awaiting the results of ongoing deep research before being updated more thoroughly.
+The project now contains a **complete modular curriculum** consisting of 11 progressive modules (00-overview through 10-decision-trees) covering RAG fundamentals, architecture, implementation, and SRE-specific patterns.
 
-### Future Direction
-Once research is complete and documents are updated, the goal is to evolve this into **modular educational content** similar to the ce101 course structure (see `../ce101/` for reference) - consisting of numbered modules (01-xxx.md, 02-xxx.md, etc.) that progressively build understanding.
+**Start here:** [docs/README.md](docs/README.md) for complete navigation and learning paths.
 
-The project may also evolve into a reference implementation or system in the future, but that's not the current focus.
+### Documentation Structure
+- **Modular curriculum:** `docs/00-*.md` through `docs/10-*.md` (11 modules total)
+- **Master navigation:** `docs/README.md` with learning paths for three audiences
+- **Archived research:** `docs/archive/` contains the original comprehensive documents that informed the modular curriculum
 
-## Learning Materials Structure
+## Modular Curriculum Overview
 
-The repository contains three interconnected educational documents that build understanding from different angles:
+The curriculum consists of **11 progressive modules** organized into four phases:
 
-### 1. `rag_implementation_specs.md` - "The Blueprint"
-**Educational Focus**: Enterprise-grade RAG architecture patterns
+### Foundation Modules (Start Here)
+- **Module 00: Overview** — Curriculum orientation, learning paths, prerequisites
+- **Module 01: Why RAG Fails** — Five fundamental failure modes in depth
+- **Module 02: Chunking Strategies** — Four approaches and the Four Pillars decision framework
 
-**What You'll Learn**:
-- How to design dual-collection vector databases (abstracts vs full sections)
-- Why specific token ranges (400-900) prevent hallucinations
-- API contract design for production RAG systems
-- Cost modeling and infrastructure planning for real deployments
-- Processing pipeline architecture with concrete Python examples
+### Core Architecture Modules
+- **Module 03: Embedding Fundamentals** — Model selection criteria, fine-tuning, multi-vector approaches
+- **Module 04: Retrieval Architecture** — Multi-stage pipelines (BM25 + dense + reranking)
+- **Module 05: Advanced Patterns** — Self-RAG, multi-hop retrieval, query transformation
 
-**Key Takeaway**: Enterprise RAG isn't just "chunk documents and search" - it requires deliberate schema design, multi-stage retrieval, and careful cost-performance tradeoffs.
+### Production & Operations Modules
+- **Module 06: Production Deployment** — Incremental indexing, deduplication, scaling, cost optimization
+- **Module 07: Evaluation Approach** — Validation datasets, metrics, continuous monitoring
 
-### 2. `wiki_content_strategy.md` - "The Decision Framework"
-**Educational Focus**: Content-aware chunking strategy selection
+### Implementation & Reference Modules
+- **Module 08: Implementation Guide** — Concrete schemas, pipelines, technology selection
+- **Module 09: SRE-Specific Considerations** — Runbooks, post-mortems, IaC, logs, alerts
+- **Module 10: Decision Trees** — Quick-reference flowcharts and troubleshooting guides
 
-**What You'll Learn**:
-- Why different content types require different chunking strategies
-- The 4 fundamental chunking approaches and when to use each:
-  - Layout-Aware Hierarchical (structured documents)
-  - Code-Aware (IaC and source code)
-  - Fixed-Size Sliding Window (logs and unstructured content)
-  - Recursive Splitter (complex mixed content)
-- How to analyze content characteristics (structure, density, query patterns, update frequency)
-- Real-world examples from SRE contexts (runbooks, post-mortems, Terraform, K8s manifests)
+**See [docs/README.md](docs/README.md) for complete module descriptions, time estimates, and learning paths.**
 
-**Key Takeaway**: There is no "one size fits all" chunking strategy - successful RAG requires matching strategy to content type.
+## Three Learning Paths
 
-### 3. `technique_deep_dive.md` - "The Technical Foundation"
-**Educational Focus**: Deep understanding of hierarchical chunking mechanics
+The curriculum supports three distinct learning paths for different roles. See [docs/README.md](docs/README.md) for complete details.
 
-**What You'll Learn**:
-- Why the dual-storage model (abstracts + full sections) reduces hallucinations by 65%
-- Mathematical foundations of 3-stage retrieval (BM25, cosine similarity, cross-encoder)
-- How semantic hierarchies enable better context delivery
-- Post-processing techniques (deduplication, section packing, citation breadcrumbs)
-- Performance characteristics and latency budgeting
+### Path 1: Wiki Architects & Content Strategists
+**Goal:** Structure wikis for optimal human and LLM retrieval
 
-**Key Takeaway**: Layout-aware chunking preserves document structure, enabling retrieval systems to understand context rather than just matching keywords.
+**Module Sequence:**
+- Module 00 (Overview) → Module 01 (Why RAG Fails) → Module 02 (Chunking Strategies) → Module 09 (SRE-Specific) → Module 10 (Decision Trees)
 
-## Learning Path Recommendations
+**Time Investment:** 4-5 hours
+**Key Outcome:** Understand how document structure impacts retrieval; apply content-specific chunking strategies
 
-### For Wiki Architects & Content Strategists
-**Goal**: Structure wikis for both human usability and LLM retrieval
+### Path 2: RAG System Implementers
+**Goal:** Build production-quality RAG systems with informed choices
 
-1. Start with `wiki_content_strategy.md` - understand the decision matrix
-2. Read `technique_deep_dive.md` sections on "Why This Works" for each strategy
-3. Apply the "Four Pillars of Content Analysis" to your existing wiki:
-   - Structure Regularity
-   - Semantic Density
-   - Query Patterns
-   - Update Frequency
-4. Use the decision tree (bottom of `wiki_content_strategy.md`) to audit your content
+**Module Sequence:**
+- Modules 00-10 in order (all modules)
 
-**Key Question to Answer**: "If I reorganize my wiki sections to be 400-900 tokens each with clear hierarchical headers, how much better would retrieval be?"
+**Time Investment:** 8-10 hours
+**Key Outcomes:** Design 3-stage retrieval pipelines, select embedding models, build metadata-rich schemas, balance cost/quality/latency, implement monitoring
 
-### For RAG System Implementers
-**Goal**: Build production-quality RAG systems
+### Path 3: Technical Writers & SRE Documentation Teams
+**Goal:** Write documentation that works for both humans and RAG
 
-1. Start with `rag_implementation_specs.md` - understand the full architecture
-2. Study the 3-stage retrieval pipeline in `technique_deep_dive.md`
-3. Review schema designs (Vector DB, Elasticsearch, PostgreSQL) in implementation specs
-4. Use `wiki_content_strategy.md` to build your content processing pipeline
-5. Study the cost optimization strategies and monitoring approaches
+**Module Sequence:**
+- Module 00 (Overview) → Module 01 (Why RAG Fails) → Module 02 (Chunking Strategies, focus on SRE examples) → Module 09 (SRE-Specific) → Module 10 (Decision Trees)
 
-**Key Question to Answer**: "How do I balance retrieval quality, latency, and cost in my specific environment?"
-
-### For Technical Writers & SRE Documentation Teams
-**Goal**: Write documentation that works well for both humans and RAG systems
-
-1. Read the "Content-Specific Recommendations" section in `wiki_content_strategy.md`
-2. Study the examples in `technique_deep_dive.md` showing "BAD vs GOOD" chunking
-3. Learn from the runbook and post-mortem structuring examples
-4. Understand why 400-900 token sections with clear headers improve both human scanning and LLM retrieval
-
-**Key Question to Answer**: "How should I structure my runbooks/post-mortems/troubleshooting guides to maximize retrieval accuracy?"
+**Time Investment:** 3-4 hours
+**Key Outcome:** Structure runbooks/post-mortems for retrieval completeness; understand section sizing rationale
 
 ## Core Educational Principles
 
@@ -194,50 +172,40 @@ An enterprise wiki might use:
 
 **Why This Works**: Content-specific strategies maximize retrieval quality per document type.
 
-## Performance Benchmarks (Educational Context)
+## When Editing Module Content
 
-These metrics illustrate the quality difference between approaches:
+The curriculum is now in **modular format**. When updating or extending modules:
 
-### Traditional Fixed-Size Chunking
-- Recall@10: 0.62
-- Precision@10: 0.45
-- Hallucination Rate: 23%
-
-### Layout-Aware Hierarchical + 3-Stage Retrieval
-- Recall@10: 0.87 (+40%)
-- Precision@10: 0.79 (+76%)
-- Hallucination Rate: 8% (-65%)
-
-**Learning**: Structure-aware approaches dramatically improve retrieval quality.
-
-## When Editing These Materials
-
-### Current Phase: Research-Based Documents
-The three existing documents (`rag_implementation_specs.md`, `wiki_content_strategy.md`, `technique_deep_dive.md`) are comprehensive technical resources awaiting research findings. When updating:
-
-- Maintain real-world examples from SRE/DevOps contexts
-- Include "Why This Works" explanations, not just "how to"
-- Provide concrete metrics and benchmarks where possible
-- Use realistic technical scenarios (K8s, Terraform, databases, monitoring)
+### Module Structure Standards
+Each module should:
+- Have a clear reading time estimate (based on ~200 words/minute for technical content)
+- State prerequisites explicitly
+- Include "Learning Objectives" or "What You'll Learn" section
+- Provide "What's Next" navigation to subsequent modules
+- Use real-world SRE/DevOps examples (K8s, Terraform, databases, monitoring, incidents)
 - Show both "bad" and "good" approaches with clear explanations
-- Include token counts and latency numbers for educational context
+- Focus on **why** (mechanisms) over **what** (prescriptions)
 
-### Future Phase: Modular Educational Content
-When evolving to numbered modules (similar to ce101):
+### Content Principles
+Module content should teach:
+- **Concepts:** Why certain approaches work (mechanisms, not just outcomes)
+- **Trade-offs:** Cost vs quality, latency vs accuracy, complexity vs benefit
+- **Decision frameworks:** How to choose between options for your context
+- **Real-world patterns:** Concrete examples from production systems
 
-- Break content into progressive learning modules (01-xxx.md, 02-xxx.md, etc.)
-- Each module should be completable in 30-60 minutes
-- Include practical exercises and real-world scenarios
-- Create clear learning objectives for each module
-- Build concepts progressively (each module builds on previous ones)
-- Consider creating supporting materials (quick reference cards, example prompts, etc.)
+### What to Avoid
+- **Benchmark percentages without context:** Don't say "X is 40% better" without explaining why and under what conditions
+- **Absolute prescriptions:** Avoid "always do X" — explain when X is appropriate and when it's not
+- **Vendor-specific recommendations:** Focus on decision criteria, not specific products
+- **Unexplained jargon:** Define technical terms or link to definitions
 
-### General Content Principles
-New or updated content should teach:
-- **Concepts** (why certain approaches work)
-- **Trade-offs** (cost vs quality, latency vs accuracy)
-- **Decision frameworks** (how to choose between options)
-- **Real-world patterns** (concrete examples from production systems)
+### Adding New Modules
+If creating additional modules (11-xxx.md and beyond):
+- Maintain the numbering scheme
+- Update `docs/README.md` with new module info
+- Ensure clear dependencies (what prerequisite modules must be read first)
+- Target 30-75 minutes reading time per module
+- Consider which learning path(s) the module supports
 
 ## Key Questions This Curriculum Answers
 
