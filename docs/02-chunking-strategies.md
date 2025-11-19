@@ -699,3 +699,7 @@ Now that you understand chunking strategies and can select appropriate approache
 - **Production deployment:** Handling updates, versioning, and deduplication at scale
 
 The goal is a comprehensive understanding of how chunking, retrieval, and context assembly work together to build robust RAG systems that minimize failure modes while accepting appropriate trade-offs for your requirements.
+
+---
+
+**Next Module:** [Module 03: Embedding Fundamentals](03-embedding-fundamentals.md) — Learn embedding model selection criteria, when to fine-tune, and multi-vector approaches
