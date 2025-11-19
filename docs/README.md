@@ -192,27 +192,19 @@ Understanding how and why RAG fails (Module 01) informs every subsequent design 
 
 ---
 
-## Previous Documentation
+## Source Research
 
-If you're looking for the older comprehensive guides (pre-modular curriculum), they've been archived:
-
-→ **[Archive: Previous Documentation](archive/DEPRECATED.md)**
-
-The archived documents (`technique_deep_dive.md`, `wiki_content_strategy.md`, `rag_implementation_specs.md`) contain deep technical detail that informed the creation of this modular curriculum. They remain available for reference but are no longer maintained.
-
-**For all new learning, use the modules above.**
+The deep research documents that informed this curriculum are available in [`deepresearch/`](deepresearch/) for additional context and reference material.
 
 ---
 
 ## Feedback & Contributions
 
-This is a living educational resource. If you find:
-- Concepts that need clarification
-- Missing real-world examples
-- Opportunities to improve teaching approach
-- Errors or outdated information
-
-Please open an issue or submit a pull request at the repository.
+This is a living educational resource. Contributions are welcome for:
+- Clarifying concepts
+- Adding real-world examples
+- Improving teaching approach
+- Correcting errors or updating information
 
 ---
 

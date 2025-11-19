@@ -79,9 +79,8 @@ Write documentation that works for both humans and RAG
 
 - **[`docs/`](docs/)** — Complete modular curriculum (11 modules + navigation)
   - **[`docs/README.md`](docs/README.md)** — Master curriculum navigation
-  - **[`docs/archive/`](docs/archive/)** — Original research documents (preserved for reference)
+  - **[`docs/deepresearch/`](docs/deepresearch/)** — Source research documents that informed the curriculum
 - **[`sre_wiki_example/`](sre_wiki_example/)** — Example wiki structure following RAG best practices
-- **[`PROGRESS.md`](PROGRESS.md)** — Project status and completion tracking
 - **[`CLAUDE.md`](CLAUDE.md)** — Guidance for Claude Code when working with this repository
 
 ---
@@ -118,14 +117,12 @@ Or jump to [Module 01: Why RAG Fails](docs/01-why-rag-fails.md) if you're alread
 
 ---
 
-## Previous Documentation
+## Source Research
 
-The original comprehensive research documents have been preserved in [`docs/archive/`](docs/archive/) with a [migration guide](docs/archive/DEPRECATED.md) explaining how content maps to the new modular curriculum.
+The deep research documents that informed this curriculum are available in [`docs/deepresearch/`](docs/deepresearch/) for reference and additional context.
 
 ---
 
 ## License & Contributions
 
 This is an educational resource maintained as a living document. If you find gaps, unclear explanations, or opportunities to improve the teaching approach, contributions are welcome.
-
-See [PROGRESS.md](PROGRESS.md) for contribution guidelines and feedback mechanisms.
