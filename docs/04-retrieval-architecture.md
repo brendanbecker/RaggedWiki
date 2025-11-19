@@ -924,3 +924,7 @@ Packed order:
 - When cross-encoder reranking justifies its latency cost
 - How parent-child retrieval provides both precision and context
 - The decision framework for selecting appropriate architecture complexity
+
+---
+
+**Next Module:** [Module 05: Advanced Patterns](05-advanced-patterns.md) — Learn when advanced techniques like Self-RAG and multi-hop retrieval justify their complexity

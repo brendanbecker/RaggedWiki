@@ -1085,3 +1085,7 @@ retrieval:
 - The complete ingestion and retrieval pipeline stages
 - How to select technologies based on YOUR requirements (not benchmarks)
 - Operational considerations for production RAG systems
+
+---
+
+**Next Module:** [Module 09: SRE-Specific Considerations](09-sre-specific-considerations.md) — Apply RAG patterns to runbooks, post-mortems, IaC, logs, and SRE documentation

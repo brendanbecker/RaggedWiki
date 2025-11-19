@@ -205,4 +205,4 @@ Understanding failure modes is the foundation for every other decision in RAG ar
 
 ---
 
-**Questions? Feedback?** This is an educational resource maintained as a living document. If you find gaps, unclear explanations, or opportunities to improve the teaching approach, contributions are welcome at the repository linked in the README.
+**Next Module:** [Module 01: Why RAG Fails](01-why-rag-fails.md) — Explore the five fundamental failure modes in depth

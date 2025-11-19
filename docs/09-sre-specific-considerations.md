@@ -1524,7 +1524,7 @@ SRE content requires content-specific chunking strategies:
 
 **Core Principle:** One chunking strategy cannot handle the diversity of SRE content. Match strategy to content characteristics using the decision matrix.
 
-**Next Module:** [07-evaluation-approach.md](07-evaluation-approach.md) - How to validate RAG quality without relying on benchmarks (coming in Phase 4)
+**Next Module:** [Module 10: Decision Trees](10-decision-trees.md) — Quick-reference flowcharts for selecting chunking strategies, retrieval architectures, and debugging quality issues
 
 ---
 

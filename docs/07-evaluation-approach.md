@@ -958,3 +958,7 @@ def find_coverage_gaps(failed_queries):
 - ✓ Build evaluation datasets with real and synthetic queries
 - ✓ Identify and investigate quality degradation
 - ✓ Implement continuous monitoring without obsessing over benchmarks
+
+---
+
+**Next Module:** [Module 08: Implementation Guide](08-implementation-guide.md) — Build concrete schemas, pipelines, and reference architecture for production RAG systems

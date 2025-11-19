@@ -575,3 +575,7 @@ embedding_128 = embedding_full[:128]
 - Why dense-only search fails on technical queries
 - When sparse search outperforms dense at scale
 - How to select an embedding model based on your requirements (not benchmarks)
+
+---
+
+**Next Module:** [Module 04: Retrieval Architecture](04-retrieval-architecture.md) — Design multi-stage retrieval pipelines with hybrid search and reranking
