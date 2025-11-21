@@ -14,6 +14,9 @@ This curriculum focuses on **understanding why RAG systems fail**, **when differ
 
 ## Quick Start
 
+**Want to try the RAG system immediately? (5 minutes)**
+→ See **[QUICKSTART.md](QUICKSTART.md)** → Run the working RAG system and query example docs
+
 **New to RAG or RAG failures?**
 → Start with [Module 00: Overview](docs/00-overview.md) → [Module 01: Why RAG Fails](docs/01-why-rag-fails.md)
 
@@ -22,6 +25,9 @@ This curriculum focuses on **understanding why RAG systems fail**, **when differ
 
 **Restructuring wiki content for RAG?**
 → Focus on [Module 02: Chunking Strategies](docs/02-chunking-strategies.md) → [Module 09: SRE-Specific Considerations](docs/09-sre-specific-considerations.md) → [Module 10: Decision Trees](docs/10-decision-trees.md)
+
+**Want to see chunking strategies in action?**
+→ Explore [chunking_examples/](chunking_examples/) for side-by-side comparisons
 
 **Need a quick answer?**
 → Use [Module 10: Decision Trees](docs/10-decision-trees.md) for flowcharts
@@ -77,10 +83,38 @@ Write documentation that works for both humans and RAG
 
 ## Repository Contents
 
+### 📚 Educational Materials
+
 - **[`docs/`](docs/)** — Complete modular curriculum (11 modules + navigation)
-  - **[`docs/README.md`](docs/README.md)** — Master curriculum navigation
+  - **[`docs/README.md`](docs/README.md)** — Master curriculum navigation with learning paths
+  - **[`docs/00-overview.md`](docs/00-overview.md)** through **[`docs/10-decision-trees.md`](docs/10-decision-trees.md)** — 11 progressive modules
   - **[`docs/deepresearch/`](docs/deepresearch/)** — Source research documents that informed the curriculum
-- **[`sre_wiki_example/`](sre_wiki_example/)** — Example wiki structure following RAG best practices
+
+### 🛠️ Practical Implementation
+
+- **[`simple_rag_system/`](simple_rag_system/)** — **Working RAG system** (Python + sentence-transformers + ChromaDB)
+  - **[`simple_rag_system/README.md`](simple_rag_system/README.md)** — Complete system documentation
+  - **[`simple_rag_system/TESTING.md`](simple_rag_system/TESTING.md)** — Step-by-step verification guide (568 lines)
+  - **[`simple_rag_system/SETUP.md`](simple_rag_system/SETUP.md)** — Setup options and troubleshooting
+  - Local embeddings, no API keys required, fully reproducible
+
+### 📝 Examples & References
+
+- **[`sre_wiki_example/`](sre_wiki_example/)** — **17 realistic SRE documents** structured for optimal RAG
+  - Runbooks, how-to guides, incident postmortems, process docs, service overviews
+  - All follow 400-900 token section sizing and layout-aware principles
+
+- **[`chunking_examples/`](chunking_examples/)** — **Side-by-side chunking demonstrations**
+  - Naive fixed-size (wrong approach) vs. layout-aware (correct) vs. abstract-first (advanced)
+  - Token counts, retrieval simulations, and detailed analysis for each
+
+### 💡 Planning & Future Work
+
+- **[`future_features/`](future_features/)** — Enhancement roadmap and feature ideas
+  - Validation tools, advanced retrieval patterns, evaluation framework, integrations
+
+- **[`QUICKSTART.md`](QUICKSTART.md)** — 5-minute quick start to try the RAG system
+
 - **[`CLAUDE.md`](CLAUDE.md)** — Guidance for Claude Code when working with this repository
 
 ---
@@ -98,6 +132,35 @@ After completing this curriculum, you'll be able to:
 ✓ **Debug RAG failures** systematically (retrieval vs. generation)
 ✓ **Avoid cargo-culting** — understand *why* you're choosing each approach
 
+## What's Included
+
+### 📖 Theory + Practice
+
+- **11-module curriculum** (8-10 hours) teaching RAG fundamentals through advanced patterns
+- **Working RAG implementation** demonstrating concepts in real code
+- **17 example documents** showing proper structure and metadata
+- **Side-by-side chunking comparisons** with retrieval simulations
+- **568-line testing guide** for hands-on verification
+
+### 🎯 Real-World Focus
+
+All examples use realistic SRE/DevOps content:
+- Kubernetes troubleshooting runbooks
+- Database failover procedures
+- Incident postmortems with RCA
+- On-call rotation guides
+- Prometheus monitoring setup
+- Service architecture overviews
+
+### 🚀 Production-Ready Patterns
+
+- Layout-aware hierarchical chunking (not naive fixed-size)
+- Dual-storage model (abstracts + full sections)
+- Metadata-rich schemas for filtering
+- Multi-stage retrieval (BM25 + dense + reranking)
+- Cost optimization strategies
+- Evaluation frameworks
+
 ---
 
 ## Curriculum Philosophy
@@ -111,9 +174,28 @@ After completing this curriculum, you'll be able to:
 
 ## Getting Started
 
+### Hands-On (Recommended for First-Time Visitors)
+
+1. **[Try the RAG System →](QUICKSTART.md)** (5 minutes)
+   ```bash
+   cd simple_rag_system && source ./activate-venv.sh
+   python ingest.py --input ../sre_wiki_example
+   python query.py --query "How do I restart the auth service?"
+   ```
+
+2. **[Explore Chunking Examples →](chunking_examples/)** (10 minutes)
+   - See side-by-side comparisons of naive vs. layout-aware chunking
+   - Understand why 400-900 token sections work better
+
+3. **[Read Why RAG Fails →](docs/01-why-rag-fails.md)** (30 minutes)
+   - Learn the five fundamental failure modes
+   - Understand what you just saw in action
+
+### Conceptual (For Deep Understanding)
+
 **[Start with Module 00: Overview →](docs/00-overview.md)**
 
-Or jump to [Module 01: Why RAG Fails](docs/01-why-rag-fails.md) if you're already familiar with RAG concepts.
+Or jump to [Module 01: Why RAG Fails](docs/01-why-rag-fails.md) if you're already familiar with RAG concepts, then work through the curriculum modules sequentially.
 
 ---
 
